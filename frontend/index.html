@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Data Dictionary</title>
+<meta charset="utf-8"> <!-- add more meta tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/styles.css">
+<link rel="stylesheet" href="/static/css/bootstrap-icons.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">DDB</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/"><i class="bi bi-house-door"></i>Home</a></li>
+        <li><a href="#" onclick="openAbout(); return false;"><i class="bi bi-info"></i>About</a></li>
+        <li class="navbar-search-wrapper">
+          <form id="navbarSearchForm" class="navbar-form" onsubmit="handleSearch(event)">
+            <div class="form-group search-container">
+              <button
+                type="button"
+                class="bi bi-search btn btn-primary search-button"
+                onclick="toggleSearchInput()"
+                id="searchButton">
+                <i class="btn-primary"></i>
+              </button>
+              <input
+                type="text"
+                class="form-control search-input"
+                id="inlineSearchInput"
+                placeholder="Search..."
+                onblur="collapseSearch()"
+              />
+            </div>
+          </form>
+        </li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" onclick="openLogin(); return false;"><span class="bi bi-box-arrow-in-right"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Data Dictionary Browser</h1>      
+    <p>Interactive data dictionary browser for biomedical data exploration</p>
+  </div>
+</div>
+  
+<div class="container-fluid bg-3 text-center">
+  <h3>Projects</h3>
+  <div id="projectsContainer" class="row g-3"></div>
+</div>
+
+<div class="container-fluid bg-3 text-center">
+  <h3>Fields</h3>
+  <div id="fieldsContainer" class="row g-3"></div>
+</div>
+
+<div class="container-fluid bg-3 text-center">
+  <h3>Instruments</h3>
+  <div id="InstrumentsContainer" class="row g-3"></div>
+</div>
+
+<div class="container text-center mt-4">
+      <button onclick = "Like(this)" class="btn btn-success">
+      <i class="bi bi-hand-thumbs-up-fill"></i> Approve <span class="like-count">0</span> </button>
+    
+    <div style="margin-top: 10px;">
+      <textarea class="form-control comment-box" rows="2" placeholder="Add a comment..."></textarea>
+      <button onclick="postComment(this)" class="btn btn-primary btn-s" style="margin-top: 5px;">Post</button>
+      <ul class="comment-list" style="padding-left: 15px; margin-top: 5px;"></ul>
+    </div>
+</div>
+
+
+<footer class="container-fluid text-center">
+  <p>DDB</p>
+</footer>
+
+
+    <div id="spotlightSearch" class="spotlight-overlay">
+    <span class="closebtn" onclick="closeSearch()" title="Close Overlay">&times;</span>
+    <div class="spotlight-content">
+      <input type="text" placeholder="Search..." id="spotlightInput" onkeyup="handleSearch(this)">
+    </div>
+  </div>
+
+    <div id="loginOverlay" class="spotlight-overlay">
+        <span class="closebtn" onclick="closeLogin()" title="Close Overlay">&times;</span>
+        <div class="spotlight-center-wrapper">
+        <form style="color: white; max-width: 400px; margin: auto;">
+            <h3 style="text-align: center;">Login</h3>
+            <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="button" class="btn btn-link btn-block" onclick="openRegister()">Register</button>
+        </form>
+        </div>
+    </div>
+  
+    <div id="registerOverlay" class="spotlight-overlay">
+        <span class="closebtn" onclick="closeRegister()" title="Close Overlay">&times;</span>
+        <div class="spotlight-content">
+          <form id="registerForm" style="color: white; max-width: 400px; margin: auto;">
+            <h3>Register</h3>
+            <div class="form-group">
+              <input type="text" class="form-control" name="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Create Account</button>
+          </form>
+        </div>
+      </div>
+      
+    
+  
+      
+
+    
+
+    <div id="aboutOverlay" class="spotlight-overlay">
+        <span class="closebtn" onclick="closeAbout()" title="Close Overlay">&times;</span>
+        <div class="about-box">
+        <h3>About Data Dictionary Browser</h3>
+        <p>This is an interactive Data Dictionary Browser designed for biomedical data exploration.</p>
+        <p>Use the search bar to find specific metadata.</p>
+        <p>Create a user to interact with the community.</p>
+        <p>Click on the "Approve" button to approve entries and add comments, this helps the community separate good entries from less good entries.</p>
+        <p>Keep it civil in the comment section!</p>
+
+        </div>
+    </div>
+
+    
+  
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/all.js"></script>
+
+</body>
+</html>
