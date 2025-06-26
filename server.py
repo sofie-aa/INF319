@@ -107,4 +107,4 @@ if __name__ == "__main__":
     # read in the json database (TOBE DONE to make this an endpoint)
 
 
-    app.run(port=5000, debug=True)
+    app.run(host= "158.39.74.21", port=80, debug=True)
