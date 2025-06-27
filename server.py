@@ -99,12 +99,13 @@ def search():
         else:
             results[category] = []
 
-    print("Search results for", query, ":", results)
+    print("Search results for", query, ":", results) #used to debug search results.
     return jsonify(results)
 
 
 if __name__ == "__main__":
-    # read in the json database (TOBE DONE to make this an endpoint)
-
-
     app.run(host= "158.39.74.21", port=80, debug=True)
+
+    #run locally
+    #app.run(port=5000, debug=True)
+
