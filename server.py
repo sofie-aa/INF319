@@ -104,8 +104,8 @@ def search():
 
 
 if __name__ == "__main__":
-    app.run(host= "158.39.74.21", port=80, debug=True)
+    #app.run(host= "158.39.74.21", port=80, debug=True)
 
     #run locally
-    #app.run(port=5000, debug=True)
+    app.run(port=5000, debug=True)
 
