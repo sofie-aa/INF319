@@ -9,6 +9,7 @@ function extractCardData(item) {
   };
 }
 
+// Function to display cards in a given container
 function displayCards(items, containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -88,7 +89,7 @@ function postComment(btn) {
   }
 }
 
-// Overlays: search, login, register, about
+// Overlays: search, login, register, about. Search does not use spotlightsearch any longer.
 function openSearch() {
   document.getElementById("spotlightSearch").style.display = "flex";
   setTimeout(() => document.getElementById("spotlightInput").focus(), 100);
